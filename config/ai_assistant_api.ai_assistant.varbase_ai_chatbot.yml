@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - ai_agents.ai_agent.varbase_ai_chatbot
+id: varbase_ai_chatbot
+label: 'Varbase AI chatbot'
+description: "The visitor chatbot. Answers from this site's own content only, through the Varbase AI chatbot agent."
+system_prompt: ''
+pre_action_prompt: ''
+instructions: ''
+allow_history: private_tempstore_pool
+chat_memory_settings:
+  expiry: 604800
+  max_messages: 5
+error_message: 'Sorry, I could not answer that just now. Please try again.'
+specific_error_messages:
+  AiBadRequestException: 'I am sorry, there was an issue with your request. If the problem persists, please contact an administrator.'
+  AiRateLimitException: 'I am sorry, the request has been rejected due to rate limits. Please try again later.'
+  AiQuotaException: 'I am sorry, something went wrong. Please try again later.'
+  AiSetupFailureException: 'I am sorry, there is an issue with the AI integration on this site. Please contact an administrator.'
+  AiRequestErrorException: 'I am sorry, there was an error communicating with the AI. If the problem persists, please contact an administrator.'
+# The site's default chat model. A low temperature keeps answers close to the
+# retrieved passages.
+llm_provider: __default__
+llm_model: ''
+llm_configuration:
+  max_tokens: 4096
+  temperature: 0.2
+  frequency_penalty: 0
+  presence_penalty: 0
+  top_p: 1.0
+actions_enabled: {  }
+roles:
+  anonymous: anonymous
+  authenticated: authenticated
+  administrator: administrator
+use_function_calling: false
+ai_agent: varbase_ai_chatbot

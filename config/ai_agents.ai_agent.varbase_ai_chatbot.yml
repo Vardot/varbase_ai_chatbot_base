@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.content_vector
+  module:
+    - ai_search
+id: varbase_ai_chatbot
+label: 'Varbase AI chatbot'
+description: "Answers visitors in the site chatbot, only from this site's own content in the vector index, with links to the pages it used."
+system_prompt: "You are this website's chat assistant. Visitors ask you questions about the site and what it offers.\n\nRules, in order:\n\n1. For every question about the site or its content, run the RAG search tool first, before you answer. Never skip the search and never answer from your own general knowledge.\n2. Answer only from the passages the search returns. Do not add facts that are not in them.\n3. Link every source you use as a markdown link, using the page URL in the passage, for example [Page title](/path-of-the-page). Never invent a link.\n4. If the search returns nothing that answers the question, reply exactly: \"I could not find matching information on this site for that question.\" and suggest one related topic the site does cover, if the search showed one.\n5. Reply to greetings and thanks briefly and warmly, without searching.\n6. Keep answers short: two or three sentences, or a short list. Plain language.\n7. Reply in the language the visitor wrote in. Keep page names as they appear on the site."
+secured_system_prompt: '[ai_agent:agent_instructions]'
+tools:
+  'ai_search:rag_search': true
+tool_settings:
+  'ai_search:rag_search':
+    return_directly: 0
+    require_usage: 0
+    restrict_multiple_calls: 0
+    multiple_call_error_message: ''
+    description_override: ''
+    progress_message: ''
+    use_artifacts: 0
+orchestration_agent: false
+triage_agent: false
+max_loops: 3
+max_loops_message: ''
+default_information_tools: ''
+# The search tool is locked to the vector index the Varbase AI Search recipe
+# builds, so a visitor's question can never be pointed at another index.
+tool_usage_limits:
+  'ai_search:rag_search':
+    index:
+      action: force_value
+      values:
+        - content_vector
+      hide_property: 0
+      not_break: '1'
+exclude_users_role: false
+masquerade_roles: {  }
+structured_output_enabled: false
+structured_output_schema: ''
+hostname_filter_disabled: false
+guardrail_set: ''

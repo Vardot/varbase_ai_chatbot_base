@@ -1,0 +1,29 @@
+name: 'Varbase AI Chatbot Base'
+description: >-
+  Experimental, opt-in visitor chatbot that answers only from this site's own
+  content, with links to the pages it used, and says so when the site has no
+  answer instead of guessing. Adds a grounded retrieval agent locked to the
+  vector index of Varbase AI Search, a "Varbase AI chatbot" AI Assistant for the
+  DeepChat chatbot block, and the permission visitors need to use it. Apply
+  Varbase AI Search first: this recipe reuses its content_vector index rather
+  than embedding the content a second time. No custom PHP or shell code. On a
+  Canvas theme the chatbot block is not placed by this recipe, see the README.
+type: 'Varbase AI'
+install:
+  - user
+  - search_api
+  - ai
+  - ai_agents
+  - ai_assistant_api
+  - ai_chatbot
+  - ai_search
+config:
+  # Re-applying must be safe: create what is missing and leave the rest.
+  strict: false
+  actions:
+    # The DeepChat API answers anonymous visitors too; the assistant's own
+    # roles setting decides who may use this assistant.
+    user.role.anonymous:
+      grantPermission: 'access deepchat api'
+    user.role.authenticated:
+      grantPermission: 'access deepchat api'
