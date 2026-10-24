@@ -2,7 +2,7 @@
     "name": "drupal/varbase_ai_chatbot_base",
     "description": "A visitor chatbot for Varbase 11 that answers only from the site's own content, with links to the pages it used. Reuses the vector index of Varbase AI Search. Experimental: AI Search has no stable release. No custom PHP or shell code.",
     "type": "drupal-recipe",
-    "version": "1.0.0-alpha1",
+    "version": "1.0.x-dev",
     "keywords": [
         "recipe",
         "Varbase recipes",
