@@ -1,7 +1,7 @@
 [![Varbase](https://raw.githubusercontent.com/Vardot/varbase/11.0.x/images/varbase-logo.png)](https://www.drupal.org/project/varbase)
 
 # Varbase AI Chatbot Base
-[![Varbase AI Chatbot Base](https://img.shields.io/badge/Varbase%20AI%20Chatbot%20Base-1.0.x--dev-0d6efc?labelColor=001d38&style=flat-square)](https://www.drupal.org/project/varbase_ai_chatbot_base)
+[![Varbase AI Chatbot Base](https://img.shields.io/badge/Varbase%20AI%20Chatbot%20Base-1.0.0--alpha1-0d6efc?labelColor=001d38&style=flat-square)](https://www.drupal.org/project/varbase_ai_chatbot_base)
 
 An **opt-in** Drupal recipe that adds a visitor chatbot to a Varbase 11 site. It answers only from the
 site's own content, links the pages it used, and when the site has no answer it says so instead of
