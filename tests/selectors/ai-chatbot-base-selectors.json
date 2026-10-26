@@ -1,0 +1,8 @@
+{
+  "css": {
+    "rag search tool": ".ai-tools-library-item:has(.ai-tools-library-item__remove[data-tool-id='ai_search:rag_search'])",
+    "content vector index restriction": "textarea[name='tool_usage[ai_search:rag_search][property_restrictions][table][index][restrictions][values]']:has-text('content_vector')",
+    "forced index value": "select[name='tool_usage[ai_search:rag_search][property_restrictions][table][index][restrictions][action]'] option[value='force_value']:checked",
+    "agent settings": "body"
+  }
+}
