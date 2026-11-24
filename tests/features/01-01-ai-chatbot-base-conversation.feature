@@ -4,6 +4,8 @@ Feature: Varbase AI Recipe - AI Chatbot Base - A visitor chatbot grounded in the
   I want to ask the site's chatbot a question in my own words
   So that I get an answer from the site's own pages instead of searching for it
 
+  # Echo repeats the question, so "should answer with Varbase" could pass for the wrong reason.
+  @live-ai
   Scenario: Verify a visitor asks the chatbot about the site and gets an answer from its pages
     Given I am an anonymous user
       And I am on the homepage
